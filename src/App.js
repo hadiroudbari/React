@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./steps.css";
 
 const messages = [
   "Learn React ⚛️",
@@ -7,7 +6,7 @@ const messages = [
   "Invest your new income 🤑",
 ];
 
-export default function Steps() {
+export default function App() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
 
