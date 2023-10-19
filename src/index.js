@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Steps from "./Steps";
+import Travel from "./Travel";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Steps />
+    <Travel />
   </React.StrictMode>
 );
