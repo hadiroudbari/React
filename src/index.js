@@ -1,36 +1,121 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
-import StarRating from "./StarRating";
 
-function Test() {
-  const [movieRating, setMovieRating] = useState(0);
+const pizzaData = [
+  {
+    name: "Focaccia",
+    ingredients: "Bread with italian olive oil and rosemary",
+    price: 6,
+    photoName: "pizzas/focaccia.jpg",
+    soldOut: false,
+  },
+  {
+    name: "Pizza Margherita",
+    ingredients: "Tomato and mozarella",
+    price: 10,
+    photoName: "pizzas/margherita.jpg",
+    soldOut: false,
+  },
+  {
+    name: "Pizza Spinaci",
+    ingredients: "Tomato, mozarella, spinach, and ricotta cheese",
+    price: 12,
+    photoName: "pizzas/spinaci.jpg",
+    soldOut: false,
+  },
+  {
+    name: "Pizza Funghi",
+    ingredients: "Tomato, mozarella, mushrooms, and onion",
+    price: 12,
+    photoName: "pizzas/funghi.jpg",
+    soldOut: false,
+  },
+  {
+    name: "Pizza Salamino",
+    ingredients: "Tomato, mozarella, and pepperoni",
+    price: 15,
+    photoName: "pizzas/salamino.jpg",
+    soldOut: true,
+  },
+  {
+    name: "Pizza Prosciutto",
+    ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
+    price: 18,
+    photoName: "pizzas/prosciutto.jpg",
+    soldOut: false,
+  },
+];
+
+function App() {
+  // NEVER NEST COMPONENTS
+  // function Pizza() {
+  //   return <h2>Pizza</h2>;
+  // }
 
   return (
-    <div>
-      <StarRating color="blue" maxRating={10} onSetRating={setMovieRating} />
-      <p>This movie was rated {movieRating} stars</p>
+    <div className="container">
+      <Header />
+      <Menu />
+      <Footer />
     </div>
   );
 }
 
+function Header() {
+  return (
+    <header className="header">
+      <h1>Fast React Pizza Company</h1>
+    </header>
+  );
+}
+
+function Menu() {
+  return (
+    <main className="menu">
+      <h2>Our Menu</h2>
+
+      <ul className="pizzas">
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObj={pizza} key={pizza.name} />
+        ))}
+      </ul>
+
+      {/* <Pizza
+        name="Pizza Spinaci"
+        ingredient="Tomato, mozarella, spinach, and ricotta cheese"
+        photoName="pizzas/spinaci.jpg"
+        price={10}
+      /> */}
+    </main>
+  );
+}
+
+function Pizza({ pizzaObj }) {
+  return (
+    <li className="pizza">
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+      <div>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.price}</span>
+      </div>
+    </li>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      {new Date().toLocaleTimeString()} , We're currently open
+    </footer>
+  );
+}
+
+// React v18
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
-    {/* <StarRating
-      maxRating={5}
-      messages={["Terrible", "Bad", "Okay", "Good", "Amazing"]}
-      defaultRating={1}
-    />
-    <StarRating
-      maxRating={10}
-      size={36}
-      color="green"
-      className="test"
-      defaultRating={7}
-    />
-    <Test /> */}
   </React.StrictMode>
 );
