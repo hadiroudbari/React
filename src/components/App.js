@@ -106,8 +106,6 @@ export default function App() {
     0
   );
 
-  console.log("app");
-
   useEffect(function () {
     fetch("http://localhost:8000/questions")
       .then((res) => res.json())
