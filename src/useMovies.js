@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const KEY = "bd4ce197";
 
-export function useMovies(query, callback) {
+export function useMovies(query) {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -47,7 +47,7 @@ export function useMovies(query, callback) {
       }
 
       // handleCloseMovie();
-      callback?.();
+      // callback?.();
       fetchMovie();
 
       // Abort Previous Fetch (CleanUp Fetch Request)
