@@ -86,8 +86,7 @@ function reducer(state, action) {
     case "tick":
       return {
         ...state,
-        secondsRemaining: state.secondsRemaining - 1,
-        status: state.secondsRemaining === 0 ? "finished" : state.status,
+        status: "finished",
       };
 
     default:
@@ -106,6 +105,8 @@ export default function App() {
     (prev, cur) => prev + cur.points,
     0
   );
+
+  console.log("app");
 
   useEffect(function () {
     fetch("http://localhost:8000/questions")

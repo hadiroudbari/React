@@ -1,18 +1,24 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Timer({ dispatch, secondsRemaining }) {
-  const mins = Math.floor(secondsRemaining / 60);
-  const seconds = secondsRemaining % 60;
+  const [time, setTime] = useState(secondsRemaining);
+
+  const mins = Math.floor(time / 60);
+  const seconds = time % 60;
 
   useEffect(
     function () {
       const id = setInterval(function () {
-        dispatch({ type: "tick" });
+        if (time === 0) {
+          dispatch({ type: "tick" });
+        } else {
+          setTime((time) => time - 1);
+        }
       }, 1000);
 
       return () => clearInterval(id);
     },
-    [dispatch]
+    [dispatch, time]
   );
 
   return (
