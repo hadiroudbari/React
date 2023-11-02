@@ -35,30 +35,6 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
-    },
-    {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "es",
-      "date": "2023-11-02T19:09:43.551Z",
-      "notes": "asdsadda",
-      "position": {
-        "lat": "40.38158750890399",
-        "lng": "-3.7353515625000004"
-      },
-      "id": 98443198
-    },
-    {
-      "cityName": "Deyhuk",
-      "country": "Iran (Islamic Republic of)",
-      "emoji": "ir",
-      "date": "2023-11-02T19:17:16.960Z",
-      "notes": "adaadasd",
-      "position": {
-        "lat": "33.396156312548605",
-        "lng": "57.65625000000001"
-      },
-      "id": 98443199
     }
   ]
 }
