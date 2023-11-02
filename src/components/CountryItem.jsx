@@ -3,7 +3,7 @@ import styles from "./CountryItem.module.css";
 function CountryItem({ country }) {
   return (
     <li className={styles.countryItem}>
-      <img src={country.emoji} alt={country.country} />
+      <span className={`${styles.emoji} fi fi-${country.emoji}`}></span>
       <span>{country.country}</span>
     </li>
   );
