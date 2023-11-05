@@ -8,7 +8,7 @@ export default function customerReducer(state = initialStateCustomer, action) {
   switch (action.type) {
     case "customer/createCustomer":
       return {
-        ...store,
+        ...state,
         fullName: action.payload.fullName,
         nationalID: action.payload.nationalID,
         createdAt: action.payload.createdAt,
