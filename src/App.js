@@ -1,72 +1,18 @@
-import { useState } from "react";
+import CreateCustomer from "./CreateCustomer";
+import Customer from "./Customer";
+import AccountOperations from "./AccountOperations";
+import BalanceDisplay from "./BalanceDisplay";
 
-const messages = [
-  "Learn React ⚛️",
-  "Apply for jobs 💼",
-  "Invest your new income 🤑",
-];
-
-export default function App() {
-  const [isOpen, setIsOpen] = useState(true);
-  const [step, setStep] = useState(1);
-
-  function handlePrevious() {
-    // if (step > 1) setStep(step - 1);
-    if (step > 1) setStep((curStep) => curStep - 1);
-  }
-
-  function handleNext() {
-    // if (step < 3) setStep(step + 1);
-    if (step < 3) setStep((curStep) => curStep + 1);
-  }
-
+function App() {
   return (
-    <>
-      {/* setIsOpen(!isOpen)} */}
-      <button onClick={() => setIsOpen((curIs) => !curIs)} className="close">
-        &times;
-      </button>
-
-      {isOpen && (
-        <div className="steps">
-          <div className="numbers">
-            <div className={step >= 1 ? "active" : ""}>1</div>
-            <div className={step >= 2 ? "active" : ""}>2</div>
-            <div className={step >= 3 ? "active" : ""}>3</div>
-          </div>
-
-          <StepMessage step={step}>{messages[step - 1]}</StepMessage>
-
-          <div className="buttons">
-            <Button textColor="#fff" bgColor="#7950f2" onClick={handlePrevious}>
-              <span>👈</span> Previous
-            </Button>
-            <Button textColor="#fff" bgColor="#7950f2" onClick={handleNext}>
-              Next <span>👉</span>
-            </Button>
-          </div>
-        </div>
-      )}
-    </>
-  );
-}
-
-function StepMessage({ step, children }) {
-  return (
-    <div className="message">
-      <h3>Step {step}:</h3>
-      {children}
+    <div>
+      <h1>🏦 The React-Redux Bank ⚛️</h1>
+      <CreateCustomer />
+      <Customer />
+      <AccountOperations />
+      <BalanceDisplay />
     </div>
   );
 }
 
-function Button({ textColor, bgColor, onClick, children }) {
-  return (
-    <button
-      onClick={onClick}
-      style={{ backgroundColor: bgColor, color: textColor }}
-    >
-      {children}
-    </button>
-  );
-}
+export default App;
