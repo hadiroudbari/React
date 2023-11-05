@@ -107,7 +107,7 @@ function requestLoan(amount, purpose) {
   };
 }
 
-function payload() {
+function payLoan() {
   return { type: "account/payLoan" };
 }
 
@@ -118,7 +118,7 @@ console.log(store.getState());
 store.dispatch(requestLoan(1000, "Buy a cheap car"));
 console.log(store.getState());
 
-store.dispatch(payload());
+store.dispatch(payLoan());
 console.log(store.getState());
 
 function createCustomer(fullName, nationalID) {
