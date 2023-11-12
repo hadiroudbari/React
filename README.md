@@ -1,5 +1,11 @@
 # React + Vite
 
+// npm create vite@4
+// npm i
+// npm install --save-dev vite-plugin-eslint eslint-config-react-app eslint
+// create .eslintrc.json and write extends
+// import eslint in vite.config
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
