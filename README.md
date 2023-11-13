@@ -14,6 +14,11 @@
 
 // npm i --save @supabase/supabase-js
 
+// npm i @tanstack/react-query@4
+// npm i @tanstack/react-query-devtools@4
+
+// npm i date-fns
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
