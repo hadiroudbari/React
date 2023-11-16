@@ -21,6 +21,8 @@
 
 // npm i react-hot-toast
 
+// npm i react-hook-form@7
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
