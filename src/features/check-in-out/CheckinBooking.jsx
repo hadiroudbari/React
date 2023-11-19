@@ -7,11 +7,11 @@ import ButtonGroup from "../../ui/ButtonGroup";
 import Button from "../../ui/Button";
 import ButtonText from "../../ui/ButtonText";
 import Spinner from "../../ui/Spinner";
+import Checkbox from "../../ui/Checkbox.jsx";
 
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { useBooking } from "../bookings/useBooking.js";
 import { useEffect, useState } from "react";
-import Checkbox from "../../ui/Checkbox.jsx";
 import { formatCurrency } from "../../utils/helpers.js";
 import { useCheckin } from "./UseCheckin.js";
 import { useSettings } from "../settings/useSettings.js";
@@ -33,7 +33,7 @@ function CheckinBooking() {
   useEffect(() => setConfirmPaid(booking?.isPaid || false), [booking?.isPaid]);
 
   const moveBack = useMoveBack();
-  const { checkin, isCheckinIn } = useCheckin();
+  const { checkin, isCheckingIn } = useCheckin();
 
   if (isLoading || isLoadingSettings) return <Spinner />;
 
@@ -94,7 +94,7 @@ function CheckinBooking() {
         <Checkbox
           checked={confirmPaid}
           onChange={() => setConfirmPaid((confirm) => !confirm)}
-          disabled={confirmPaid || isCheckinIn}
+          disabled={confirmPaid || isCheckingIn}
           id="confirm"
         >
           I confirm that {guests.fullName} has paid the toal amount of{" "}
@@ -109,7 +109,7 @@ function CheckinBooking() {
       </Box>
 
       <ButtonGroup>
-        <Button disabled={!confirmPaid || isCheckinIn} onClick={handleCheckin}>
+        <Button disabled={!confirmPaid || isCheckingIn} onClick={handleCheckin}>
           Check in booking #{bookingId}
         </Button>
         <Button variation="secondary" onClick={moveBack}>
