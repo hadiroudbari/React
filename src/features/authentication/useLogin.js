@@ -12,7 +12,7 @@ export function useLogin() {
     onSuccess: (user) => {
       // set to cache query
       queryClient.setQueriesData(["user"], user);
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
     },
 
     onError: (err) => {
